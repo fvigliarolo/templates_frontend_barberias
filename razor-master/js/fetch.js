@@ -1,4 +1,5 @@
-const backend = 'http://192.168.1.21:3000/'
+// const backend = 'http://192.168.1.21:3000/'
+const backend = 'http://localhost:3000/'
 const myFetch = {
     post: async function (endpoint, data) {
        let response = await fetch(`${backend}${endpoint}`, {

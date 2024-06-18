@@ -129,6 +129,21 @@ let btnServicios;
 
 
 buscarHorarios.addEventListener("click", async () => {
+    let serviciosSeleccionados = false
+  for (let servicio in servicios) {
+    if (servicios[servicio].DOMCheckbox.checked == true) {
+      serviciosSeleccionados = true
+    }
+  }
+
+  if (!serviciosSeleccionados){
+    Swal.fire({
+      title: 'Error',
+      text: "Seleccione al menos un servicio",
+      icon: 'error'
+    });
+  }else{
+
   contenedorServicio.style.display = 'none'
   let duracion = 0
 
@@ -165,6 +180,7 @@ buscarHorarios.addEventListener("click", async () => {
   calendar.insertBefore(btnServicios, calendar.firstChild);
 
   initCalendar()
+}
 })
 
 
@@ -656,7 +672,7 @@ addEventSubmit.addEventListener("click", async () => {
       if (eventsArr.length > 0) {
         Swal.fire({
           title: '<div style="display: flex; flex-direction: column; align-items: center;"><div>Procesando...</div><div class="loader"></div></div>',
-          html: '<style>.loader {border: 16px solid #f3f3f3; border-radius: 50%; border-top: 16px solid #3498db; width: 120px; height: 120px; -webkit-animation: spin 2s linear infinite; /* Safari */ animation: spin 2s linear infinite;} @-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); }} @keyframes spin {0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); }}</style>',
+          html: '<style>.loader {border: 16px solid #f3f3f3; border-radius: 50%; border-top: 16px solid #3498db; width: 120px; height: 120px !important; -webkit-animation: spin 2s linear infinite; /* Safari */ animation: spin 2s linear infinite;} @-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); }} @keyframes spin {0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); }}</style>',
           onBeforeOpen: () => {
             Swal.showLoading();
           },
@@ -668,7 +684,7 @@ addEventSubmit.addEventListener("click", async () => {
 
         let respuesta = await postFetch("reserva", { datosReserva: datosReserva });
       
-        if (respuesta == "Se envio un mail para confirmar la reserva") {
+        if (respuesta.respuesta == "Se envio un mail para confirmar la reserva") {
           Swal.close();
           Swal.fire({
             title: "Casi listo!",

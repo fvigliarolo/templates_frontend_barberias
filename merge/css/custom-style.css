@@ -1126,7 +1126,7 @@ ul.social-box li {
   }
   .calendar .goto-today button {
 	padding: 5px 10px;
-	border: 1px solid rgb(245 179 102);
+	border: 1px solid #B47F41;
 	border-radius: 5px;
 	background-color: transparent;
 	cursor: pointer;
@@ -1343,12 +1343,6 @@ ul.social-box li {
   .add-event-body .add-event-input input::placeholder {
 	color: rgba(0, 0, 0, 0.363);
   }
-  /* .add-event-body .add-event-input input:focus {
-	border-bottom: 1px solid var(--primary-clr);
-  }
-  .add-event-body .add-event-input input:focus::placeholder {
-	color: var(--primary-clr);
-  } */
   #checkBox_pelo, #checkBox_barba, #checkBox_cejas{
 	width: auto;
   }
@@ -1359,7 +1353,7 @@ ul.social-box li {
 	justify-content: center;
 	padding: 20px;
   }
-  .add-event-footer .add-event-btn, .back_btn_wrapper {
+  .add-event-footer .add-event-btn, .back_btn_wrapper, .btnPagarAhoraClass {
 	height: 40px;
 	font-size: 1rem;
 	font-weight: 500;
@@ -1373,8 +1367,8 @@ ul.social-box li {
 	border: 1px solid var(--primary-clr);
   }
   .add-event-footer .add-event-btn:hover, .back_btn_wrapper:hover{
-	background-color: transparent;
-	color: var(--primary-clr);
+	background-color: #916634;
+	/* color: var(--primary-clr); */
   } 
   
   .set_barbero{
@@ -1383,14 +1377,15 @@ ul.social-box li {
   }
   
   .set_barbero_select{
-	background-color: var(--background);
 	height: 30px;
 	outline: none;
 	border: none;
 	padding: 0 20px;
-	color: var(--primary-clr);
 	border-radius: 5px;
 	text-transform: capitalize;
+	background: #B47F41;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
   }
   
   .Horas_disponibles_por_barbero{
@@ -1442,6 +1437,10 @@ ul.social-box li {
     color: #0000008a !important;
 }
 
+ol.carousel-indicators {
+	list-style-type: none;
+  }
+  
 
 /* ========== Responsive Stylings ========== */
 @media (max-width: 991px){
